@@ -25,22 +25,6 @@ void setup() {
 void loop() {
   
   MagnetometerScaled escalado = bussola.ReadScaledAxis(); //usa os valores conforme a escala estabelecida (1.3) e o não escalado
-
-  float heading = atan2(escalado.YAxis, escalado.XAxis); //obtem o quadrante através dos eixos x e y
-
-  float declinationAngle = 0.4072;
-  heading += declinationAngle;
-
-  // Correct for when signs are reversed.
-  if(heading < 0)
-    heading += 2*M_PI;
-    
-  // Check for wrap due to addition of declination.
-  if(heading > 2*M_PI)
-    heading -= 2*M_PI;
-
-  // Convert radianos para graus
-  float headingDegrees = heading * 180/M_PI;
   
   eixos.bussX = escalado.XAxis;
   eixos.bussY = escalado.ZAxis;
