@@ -27,15 +27,12 @@ public class AsincExec implements Runnable {
 
 	@Override
 	public void run() {
-		// executa esse processo separado do main
 		
 		IComunicacaoSensores conector = FabricaConectores.getConector();
 		
 		if (conector.iniciar(porta) == 0){
 			
 			continuar = true; 
-			// delimita a execução da thread desarmando quando quiser 
-			// passando um set false
 			
 			while(continuar){
 				conector.ler();
@@ -43,7 +40,12 @@ public class AsincExec implements Runnable {
 				notificar(conector.getAcelX(), 
 						  conector.getAcelY(), 
 						  conector.getAcelZ());
-				
+				/*try { //no linux porque no windows deu um atraso
+					Thread.sleep(100);
+				} catch (InterruptedException e) {
+					 TODO Auto-generated catch block
+					e.printStackTrace();
+				}*/
 			}
 			conector.finalizar();
 		}

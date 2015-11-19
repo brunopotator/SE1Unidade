@@ -12,7 +12,7 @@ public class ListenerConsole implements IListenerBussola {
 		if(heading < 0)
 			heading += 2*Math.PI;
 
-		// Check for wrap due to addition of declination.
+		// Checa se é maior que o permitido
 		if(heading > 2*Math.PI)
 			heading -= 2*Math.PI;
 		

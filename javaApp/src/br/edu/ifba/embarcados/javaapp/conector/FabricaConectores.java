@@ -15,7 +15,7 @@ public class FabricaConectores {
 			
 		} else if (Platform.isLinux()){
 			
-			conector = (IComunicacaoSensores)Native.loadLibrary("comunicacaosensores.dll", IComunicacaoSensores.class);
+			conector = (IComunicacaoSensores)Native.loadLibrary("comunicacaosensores.so", IComunicacaoSensores.class);
 		}
 		
 		return conector;

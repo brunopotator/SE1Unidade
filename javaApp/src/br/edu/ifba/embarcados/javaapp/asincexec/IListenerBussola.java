@@ -2,7 +2,7 @@ package br.edu.ifba.embarcados.javaapp.asincexec;
 
 public interface IListenerBussola {
 	// observador
-	// notifica tudo o q eu o acelerometro está fazendo
+	// notifica tudo o q eu a bussola está fazendo
 	
 	public void notificarMovimento(int x, int y, int z);
 	
