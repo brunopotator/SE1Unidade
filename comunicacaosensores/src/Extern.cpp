@@ -10,8 +10,7 @@
 #include "Comunicacao.h"
 
 struct Eixos { // necessario inserir todos os eixos dos sensores
-	short acelx, acely, acelz; // acelerômetro
-	//int girox, giroy, giroz; // giroscópio
+	short bussX, bussY, bussZ; // bussola
 };
 Eixos eixos;
 
@@ -36,7 +35,7 @@ int ler() {
 			//Ler o caractere F Final
 			resultado = com.ler((char*) &cf, sizeof(cf));
 			if ((resultado == EXIT_SUCCESS) && (cf == 'F')) {
-				//se tudo for atendido exibe os eixos co Acelerometro
+				//se tudo for atendido exibe os eixos da Bussola
 				resultado = EXIT_SUCCESS;
 			}
 		}
@@ -44,13 +43,13 @@ int ler() {
 	return resultado;
 }
 int getAcelX() {
-	return eixos.acelx;
+	return eixos.bussX;
 }
 int getAcelY() {
-	return eixos.acely;
+	return eixos.bussY;
 }
 int getAcelZ() {
-	return eixos.acelz;
+	return eixos.bussZ;
 }
 int finalizar() {
 	return com.finalizar();
