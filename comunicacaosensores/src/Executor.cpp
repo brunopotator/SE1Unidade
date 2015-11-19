@@ -15,11 +15,11 @@ struct Eixos { // necessario inserir todos os eixos dos sensores
 	short bussX, bussY, bussZ; // bussola
 };
 
+
 int main(int argc, char **argv) {
 	//Criar instancia da classe de comunicação
-	cout << "tam = " << sizeof(Eixos) << endl;
 	//Comunicacao com = Comunicacao("/dev/ttyACM0");
-	Comunicacao com = Comunicacao("COM3");
+	Comunicacao com = Comunicacao("COM4");
 	//enquanto estiver executando...
 	//realizar a leitura do caractere I Inicio
 	if (com.iniciar() == EXIT_SUCCESS) {
